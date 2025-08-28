@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Test Url</title>
+  </head>
+  <body>
+    <style>
+      .input {
+        border-radius: 15%;
+        border-color: red;
+        background-color: black;
+        font-size: 20px;
+        padding: 10px 15px;
+        min-width: 25%;
+        color: white;
+      }
+
+      .button {
+        border-radius: 15%;
+        border-color: red;
+        background-color: black;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 10px 15px;
+        color: white;
+      }
+
+      .button:hover {
+        border-radius: 15%;
+        border-color: red;
+        background-color: white;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 10px 15px;
+        color: black;
+      }
+
+      body {
+        background-color:coral;
+      }
+
+    </style>
+    <center>
+      <h1 id="text">Enter your text</h1>
+      <input class="input" type="text" id="input">
+      <p><button class="button" id="btn">|----Update----|</button></p>
+      <p><button class="button" id="button">CLICK</button></p>
+    </center>
+
+    <script>
+      var button = document.getElementById("button")
+      var text_h = document.getElementById("text")
+      var btn = document.getElementById("btn")
+      var input = document.getElementById("input")
+      button.onclick = function()
+      {
+        var text = input.value;
+        if (text != "" || text[-1] != " ")
+        {
+          text_h.textContent = text;
+          alert(text)
+          input.value = ""
+        }
+      }
+
+      btn.onclick = function()
+      {
+        location.reload();
+      }
+
+      document.addEventListener("keydown", function(event)
+      {
+        if (event.key === "Enter")
+        {
+          var text = input.value;
+          if (text != "" && text[text.length - 1] != " ")
+          {
+            text_h.textContent = text;
+            alert(text)
+            input.value = ""
+          }
+        }
+        else if (event.key === "Insert")
+        {
+          location.reload();
+        }
+      });
+    </script>
+  </body>
+</html>
